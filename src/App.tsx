@@ -8,10 +8,10 @@ function App() {
   const { t } = useTranslation()
 
   useEffect(() => {
-    i18n.changeLanguage("ro")
+    i18n.changeLanguage("en-US")
   }, [])
 
-  var count = 12
+  console.log(window.navigator.language)
 
   return (
     <div style={{
@@ -22,8 +22,8 @@ function App() {
     }}>
 
 
-      <h1>{t("Test2", {count: count})}</h1>
-    
+    <h1> {t("welcome", { ns: "ts" })}</h1>
+
     </div>
   )
 }

@@ -1,31 +1,23 @@
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
 import detector from "i18next-browser-languagedetector"
-
-console.log(detector)
+import romanianJSON from "./languageRO.json"
+import englishJSON from "./languageEN.json"
+import HttpBackend from "i18next-http-backend"
 
 i18n.use(initReactI18next)
     .use(detector)
     .init({
+      ns: ['ts', 'tere'],
+      defaultNS: 'ts',
       resources: {
         en: {
-          translation: {
-                "Test": "123",
-                "Test2": "1234"
-          }
-        },
-        ro: {
-            translation: {
-                "Test": "127",
-                "Test2": "12345 {{count}}"
-            }
+          ts: romanianJSON,
+          tere: englishJSON
         }
-      },
-      lng: "ro",
-      fallbackLng: "ro",
-      interpolation: {
-        escapeValue: false
       }
-    })
+
+    }
+        )
 
 export default i18n
